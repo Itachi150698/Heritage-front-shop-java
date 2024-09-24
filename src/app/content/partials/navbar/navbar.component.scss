@@ -1,0 +1,87 @@
+/* Navbar brand styling */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem; /* Slightly larger for better visibility */
+    color: #fff; /* Ensures readability */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.navbar-brand:hover {
+    color: #ffd700; /* Gold color on hover for brand */
+}
+
+/* Navbar navigation styling */
+.navbar-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem; /* Slightly smaller font size for better alignment */
+    font-weight: 600; /* More defined text weight */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scale transition */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffd700; /* Gold color on hover for nav links */
+    transform: scale(1.05); /* Slightly scale up on hover for better feedback */
+}
+
+/* Background color for custom navbar class */
+.bg-red-800 {
+    background-color: #800000; /* Deep red background */
+}
+
+/* Spacing between nav items */
+.nav-item {
+    margin-left: 20px; /* Increased spacing for better separation */
+    font-family: 'Arial', sans-serif; /* Modern font choice */
+    font-size: 1rem; /* Adjusted for better readability */
+    font-weight: 500; /* Medium weight for a more polished look */
+}
+
+/* Active link styling */
+.nav-link.active {
+    color: #ffd700; /* Gold color for active state */
+    font-weight: 700; /* Bold weight for emphasis */
+    border-bottom: 2px solid #ffd700; /* Underline for active link */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #800000; /* Deep red background */
+    color: #fff; /* White text color */
+    padding: 15px 30px; /* Enhanced padding for better spacing */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for a floating effect */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Light border for separation */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    margin-bottom: -30px;
+}
+
+.navbar:hover {
+    background-color: #600000; /* Slightly darker red on hover */
+}
+
+
+
+
+.dropdown-menu {
+    background-color: #800000; /* Match navbar background */
+    border: none; /* Remove default border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for dropdown */
+}
+
+.dropdown-item {
+    color: #fff; /* White text color */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly visible background on hover */
+}

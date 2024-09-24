@@ -1,0 +1,22 @@
+.header__top__right__auth {
+  margin-right: 10px; /* Adjust spacing as needed */
+}
+.hero__categories {
+  position: relative; /* Ensure the container is positioned relative */
+}
+
+
+.hero__categories ul {
+  position: absolute; /* Position the dropdown absolutely */
+  top: 100%; /* Position it below the "All Categories" button */
+  left: 0;
+  width: 100%;
+  background: #fff; /* Set the background color */
+  border: 1px solid #ddd; /* Add a border for visibility */
+  border-radius: 4px; /* Optional: round the corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
+  list-style: none;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+

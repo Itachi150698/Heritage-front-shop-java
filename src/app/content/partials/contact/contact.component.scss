@@ -1,0 +1,97 @@
+#about-us h2,
+#committee-members h2,
+#guides-mentors h2,
+#advisory-board h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#committee-members .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#committee-members .card:hover {
+    transform: translateY(-10px);
+}
+
+#guides-mentors ul,
+#advisory-board ul {
+    padding-left: 0;
+}
+
+#guides-mentors li,
+#advisory-board li {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.contact-section {
+    padding: 50px 0;
+}
+
+.contact-form {
+    /* background-color: #f1f1f1; */
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group label {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.contact-form .form-control {
+    border-radius: 0;
+}
+
+.contact-form .btn {
+    background-color: #800000;
+    color: #fff;
+    border-radius: 0;
+}
+
+.contact-info {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contact-info div {
+    text-align: center;
+}
+
+.contact-info i {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #800000;
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .contact-container {
+        display: flex;
+    }
+
+    .contact-form-wrapper,
+    .map-wrapper {
+        flex: 1;
+    }
+
+    .contact-form-wrapper {
+        padding-right: 15px;
+    }
+
+    .map-wrapper {
+        padding-left: 15px;
+    }
+}
+
+/* contact end */

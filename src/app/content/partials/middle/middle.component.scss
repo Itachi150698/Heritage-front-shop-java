@@ -1,0 +1,275 @@
+
+.custom-heading {
+    color: #800000;
+    line-height: 1.3em;
+    text-transform: uppercase;
+    background-image: url(../../../../assets/images/images/orange-star-img.png),
+                      url(../../../../assets/images/images/orange-star-img.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 .25em, right .25em;
+    background-size: 30px auto, 30px auto;
+    display: inline-table;
+    padding: 0 80px;
+    font-family: Impact,sans-serif;
+  }
+.design-line {
+    width: 300px;
+    height: 3px;
+    background: #800000;
+    margin: 0 auto 40px;
+    border-radius: 5px;
+}
+
+.card {
+    border: 2px solid #800000;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+
+}
+
+.card-body {
+    background: #800000;
+    color: white;
+    padding: 10px;
+}
+
+.card-body p {
+    margin: 0;
+    font-size: 1em;
+    /* font-family: 'Brush Script MT'; */
+    /* font-style: normal; */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* keep exploring */
+.keep-exploring {
+    font-size: 32px;           /* Adjust font size as needed */
+    font-weight: bold;         /* Make the text bold */
+    color: #800000;               /* Set the text color */
+    margin-bottom: 30px;       /* Space below the heading */
+    text-align: center;        /* Center the text */
+}
+
+.keep-exploring {
+    padding: 40px 0;
+}
+
+.keep-exploring .card {
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.keep-exploring .card-img-top {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.keep-exploring .card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.keep-exploring .card-body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.keep-exploring .card:hover .card-body {
+    opacity: 1;
+}
+
+.keep-exploring .card-title {
+    font-size: 30px;
+    /* font-weight: bold; */
+    color: #fff;
+}
+.container> h2{
+    font-size: 2rem;
+    font-size: 32px;
+    font-weight: bold;
+    color:  #800000;
+    font-weight: 500;
+}
+
+/* news letter start*/
+/* Newsletter Start */
+/* news letter start*/
+.container1 {
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: auto;
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210829/pngtree-retro-letter-paper-background-old-style-image_774232.jpg');
+}
+
+/* .list-group {
+
+
+/* Container for slider */
+.slider-container {
+    margin-top: 30px;
+    position: relative;
+    height: 450px; /* Adjust height as needed */
+    overflow: hidden; /* Hide overflow to enable sliding effect */
+
+}
+
+/* Style for the list-group to make it vertical slider */
+.list-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow height to adjust based on content */
+    animation: slide 25s linear infinite; /* Apply sliding animation */
+}
+.list-group:hover {
+    animation-play-state: paused; /* Pause the animation */
+}
+/* Style for list-group items */
+.list-group-item {
+    border: none;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+
+    border-radius: 8px;
+    position: relative;
+}
+
+.list-group-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Indicator styling */
+.indicator {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    width: 10px;
+    height: 10px;
+    background-color: #2bff00; /* Color for the "new" indicator */
+    border-radius: 50%;
+    display: none; /* Initially hidden */
+}
+
+.list-group-item.new .indicator {
+    display: block;
+}
+
+/* Animation for sliding effect */
+@keyframes slide {
+    10% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%); /* Adjust based on the number of items */
+    }
+}
+
+.news-content {
+    flex: 1;
+
+}
+
+.news-content h6 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.news-content small {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.news-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-left: 15px;
+    z-index: 1;
+}
+
+/* Background Blur for Collage */
+.photo-collage {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 450px;
+    width: 50%;
+    padding: 10px;
+    margin-left: auto; /* Center the collage */
+    margin-right: auto;
+    overflow: hidden;
+
+
+}
+
+.collage-img {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+/* Image Positions */
+.img1 { top: 10%; left: 5%; transform: rotate(-10deg); }
+.img2 { top: 20%; left: 25%; transform: rotate(5deg); }
+.img3 { top: 10%; left: 45%; transform: rotate(-8deg); }
+.img4 { top: 30%; left: 65%; transform: rotate(10deg); }
+.img5 { top: 50%; left: 10%; transform: rotate(-15deg); }
+.img6 { top: 60%; left: 30%; transform: rotate(8deg); }
+.img7 { top: 70%; left: 50%; transform: rotate(-8deg); }
+.img8 { top: 80%; left: 70%; transform: rotate(12deg); }
+.img9 { top: 40%; left: 75%; transform: rotate(-12deg); }
+
+.collage-img:hover {
+    transform: scale(1.5); /* Hover effect to enlarge the image */
+    z-index: 20;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 992px) {
+    .container1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .photo-collage {
+        display: none;
+    }
+}
+
+
+
+
+
+
+/* contact start */

@@ -1,0 +1,60 @@
+<!-- Categories Section Begin -->
+<section class="categories">
+  <div class="container">
+    <div class="row">
+      <div class="categories__slider owl-carousel">
+        <!-- Loop over categories dynamically -->
+        <div class="col-lg-3" *ngFor="let category of categories">
+          <div class="categories__item" [ngStyle]="{'background-image': 'url(' + getCategoryImage(category.name) + ')'}">
+            <h5><a (click)="navigateToCategory(category.id)">{{ category.name }}</a></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Categories Section End -->
+
+<!-- Featured Section Begin -->
+<section class="featured spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <h2>Featured Products</h2>
+        </div>
+        <div class="featured__controls">
+          <ul>
+            <!-- Dynamically create filter options -->
+            <li [class.active]="selectedCategoryId === null" (click)="filterByCategory(null)">All</li>
+            <li *ngFor="let category of categories" [class.active]="selectedCategoryId === category.id" (click)="filterByCategory(category.id)">{{ category.name }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row featured__filter">
+      <!-- Dynamically loop through filtered products -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mix" *ngFor="let product of filteredProducts">
+        <div class="featured__item">
+          <div class="featured__item__pic set-bg" [ngStyle]="{'background-image': 'url(' + product.processedImg + ')'}">
+            <ul class="featured__item__pic__hover">
+              <li>
+                <a (click)="toggleWishlist(product.id)">
+                  <i class="fa" [ngClass]="isInWishlist(product.id) ? 'fa-heart' : 'fa-heart-o'"></i>
+                </a>
+              </li>
+              <li><a (click)="viewProductDetail(product.id)"><i class="fa fa-retweet"></i></a></li>
+              <li><a (click)="addToCart(product.id)"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
+          </div>
+          <div class="featured__item__text">
+            <h6><a (click)="viewProductDetail(product.id)">{{ product.name }}</a></h6>
+            <h5>{{ product.price | currency }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Featured Section End -->

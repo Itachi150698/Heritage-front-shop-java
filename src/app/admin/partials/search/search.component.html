@@ -1,0 +1,16 @@
+<!-- BEGIN TOP SEARCH -->
+            <li class="menu-search">
+              <div class="search-box">
+                <form [formGroup] ="searchProductForm" (ngSubmit)="submitForm()">
+                  <div class="input-group">
+                    <input type="text" placeholder="Search" formControlName="title" class="form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-primary" type="submit">Search</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <!-- END TOP SEARCH -->
+
+

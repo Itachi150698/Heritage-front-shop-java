@@ -1,0 +1,211 @@
+<!-- Breadcrumb Section Begin -->
+<section
+  class="breadcrumb-section set-bg"
+  data-setbg="../../../../assets/css/img/breadcrumb.jpg"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="breadcrumb__text">
+          <h2>Cultural Shop</h2>
+          <div class="breadcrumb__option">
+            <a routerLink="/customer/home">Home</a>
+            <span>Shop</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Product Section Begin -->
+<section class="product spad">
+  <div class="container">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-3 col-md-5">
+        <div class="sidebar">
+          <!-- Categories -->
+          <div class="sidebar__item">
+            <h4>Categories</h4>
+            <ul>
+              <li *ngFor="let category of categories">
+                <a (click)="filterByCategory(category.id)">{{
+                  category.name
+                }}</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Filter -->
+          <div class="sidebar-filter margin-bottom-25">
+            <h2>Filter</h2>
+
+            <!-- Availability Filter -->
+            <!-- Availability Filter -->
+            <h3>Availability</h3>
+            <div class="checkbox-list">
+              <label>
+                <input type="checkbox" (change)="filterByAvailability(true)" />
+                In Stock
+              </label>
+              <label>
+                <input type="checkbox" (change)="filterByAvailability(false)" />
+                Not Available
+              </label>
+              <label>
+                <input type="checkbox" (change)="filterByAvailability(null)" />
+                All
+              </label>
+            </div>
+
+            <!-- Price Filter -->
+            <h3>Price</h3>
+            <div class="price-range-wrap">
+              <div
+                class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                data-min="100"
+                data-max="20000"
+              >
+                <div
+                  class="ui-slider-range ui-corner-all ui-widget-header"
+                ></div>
+                <span
+                  tabindex="0"
+                  class="ui-slider-handle ui-corner-all ui-state-default"
+                ></span>
+                <span
+                  tabindex="0"
+                  class="ui-slider-handle ui-corner-all ui-state-default"
+                ></span>
+              </div>
+              <div class="range-slider">
+                <div class="price-input">
+                  <input
+                    type="text"
+                    id="minamount"
+                    [(ngModel)]="minPrice"
+                    [value]="'₹' + minPrice"
+                    readonly
+                  />
+                  <input
+                    type="text"
+                    id="maxamount"
+                    [(ngModel)]="maxPrice"
+                    [value]="'₹' + maxPrice"
+                    readonly
+                  />
+                </div>
+              </div>
+            </div>
+            <button (click)="filterByPrice(minPrice, maxPrice)">
+              Apply Price Filter</button
+            ><br /><br />
+
+            <!-- Reset Filters Button -->
+            <button (click)="resetFilters()">Reset Filters</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="col-lg-9 col-md-7">
+        <div class="filter__item">
+          <div class="row">
+            <!-- Sort By Dropdown -->
+            <div class="col-lg-4 col-md-5">
+              <div class="filter__sort">
+                <span>Sort By</span>
+                <select [(ngModel)]="sortBy" (change)="sortProducts()">
+                  <option value="default">Default</option>
+                  <option value="name">Name</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+              <div class="filter__found">
+                <h6>
+                  <span>{{ filteredProducts.length }}</span> Products found
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-3">
+              <div class="filter__option">
+                <span class="icon_grid-2x2" (click)="isGridView = true"></span>
+                <span class="icon_ul" (click)="isGridView = false"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid View -->
+        <div class="row" *ngIf="isGridView">
+          <div
+            class="col-lg-4 col-md-6 col-sm-6"
+            *ngFor="let product of paginatedProducts"
+          >
+            <div class="product__item">
+              <div
+                class="product__item__pic set-bg"
+                [ngStyle]="{
+                  'background-image': 'url(' + product.processedImg + ')'
+                }"
+              >
+                <ul class="product__item__pic__hover">
+                  <li>
+                    <a (click)="toggleWishlist(product.id)">
+                      <i
+                        class="fa"
+                        [ngClass]="
+                          isInWishlist(product.id) ? 'fa-heart' : 'fa-heart-o'
+                        "
+                      ></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a (click)="viewProductDetail(product.id)">
+                      <i class="fa fa-retweet"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a (click)="addToCart(product.id)">
+                      <i class="fa fa-shopping-cart"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="product__item__text">
+                <h6>
+                  <a (click)="viewProductDetail(product.id)">{{
+                    product.name
+                  }}</a>
+                </h6>
+                <h5>{{ product.price | currency : "INR" : true : "1.2-2" }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="product__pagination">
+          <a (click)="prevPage()" [class.disabled]="currentPage === 1">
+            <i class="fa fa-long-arrow-left"></i>
+          </a>
+          <a
+            *ngFor="let page of [].constructor(totalPages); let i = index"
+            (click)="currentPage = i + 1"
+            [class.active]="currentPage === i + 1"
+            >{{ i + 1 }}</a
+          >
+          <a (click)="nextPage()" [class.disabled]="currentPage === totalPages">
+            <i class="fa fa-long-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Product Section End -->

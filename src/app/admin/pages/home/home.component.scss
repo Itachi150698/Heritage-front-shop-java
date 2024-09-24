@@ -1,0 +1,179 @@
+.category-tags {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  flex-wrap: wrap; /* Allows wrapping to the next line if items exceed container width */
+
+  .category-tag {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px; /* Adjust margin if needed */
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+}
+
+.menu-search {
+  margin-bottom: 20px; /* Add margin below the search box to create space between search and tags */
+
+  .search-box {
+    width: 300px; /* Adjust to the desired medium size */
+    margin: 0 auto; /* Center align the search box */
+
+    .input-group {
+      display: flex; /* Use flexbox to align items horizontally */
+      width: 100%; /* Ensure it takes full width of the search box */
+
+      .form-control {
+        flex: 1; /* Allow input to take up remaining space */
+        margin-right: -1px; /* Adjust to remove space between input and button */
+        height: 38px; /* Set height to match the button */
+      }
+
+      .input-group-btn {
+        display: flex; /* Ensure button aligns properly */
+        align-items: center; /* Vertically center the button */
+
+        .btn-primary {
+          height: 38px; /* Match height of the input field */
+          flex: 0; /* Prevent button from stretching */
+          border-radius: 0; /* Remove border-radius if needed for better alignment */
+          outline: none; /* Remove the default outline */
+          box-shadow: none; /* Remove any box-shadow (which might include the black border) */
+        }
+      }
+    }
+  }
+}
+
+.pi-img-wrapper {
+  width: 100%;
+  height: 200px; /* Fixed height for all images */
+  overflow: hidden; /* Ensures images do not overflow the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5; /* Optional: background color to fill empty space */
+}
+
+.pi-img-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+  width: auto;
+  height: auto;
+}
+
+.description {
+  height: 60px; /* Fixed height for truncated description */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Add ellipsis (...) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  transition: height 0.3s ease, -webkit-line-clamp 0.3s ease; /* Smooth transition */
+}
+
+.description.expanded {
+  height: auto; /* Expand to fit content */
+  -webkit-line-clamp: unset; /* Remove line clamping */
+}
+
+/* Ensure your button class is specifically targeted */
+.product-item .read-more {
+  background: none;
+  border: none;
+  color: #007bff; /* Default button color */
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+  outline: none; /* Remove the default outline */
+}
+
+.product-item .read-more:hover {
+  color: none; /* Hover color */
+}
+
+/* Optional: Add a custom focus style if needed */
+.product-item .read-more:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: none; /* Optional: Custom focus style */
+}
+
+.pi-price {
+  display: block;
+  margin-bottom: 10px; /* Space below the price */
+  font-weight: bold;
+}
+
+.pi-price {
+  font-family: Arial, sans-serif; /* Or another font that supports the INR symbol */
+}
+
+.category-name {
+  display: block;
+  margin-bottom: 15px; /* Space below the category name */
+}
+
+.product-buttons {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  flex-wrap: wrap; /* Ensure buttons wrap if they don't fit in one line */
+}
+
+.product-buttons button {
+  flex: 1 1 auto;
+  margin-bottom: 10px; /* Space between rows of buttons */
+}
+
+.product-item {
+  padding: 15px; /* Optional padding inside the product item */
+  border: 1px solid #ddd; /* Optional border for better visual separation */
+  background-color: #fff; /* Optional background color */
+}
+
+@media (max-width: 576px) {
+  .product-buttons {
+    flex-direction: column; /* Stack buttons on smaller screens */
+  }
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between products */
+}
+
+.product-item {
+  flex: 1 1 calc(25% - 20px); /* 4 items per row with space between */
+  max-width: calc(25% - 20px); /* Ensures the items don’t grow too large */
+  margin-bottom: 20px; /* Space between rows */
+}
+
+/* Adjust for different screen sizes */
+@media (max-width: 992px) {
+  .product-item {
+    flex: 1 1 calc(33.33% - 20px); /* 3 items per row on smaller screens */
+    max-width: calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-item {
+    flex: 1 1 calc(50% - 20px); /* 2 items per row on tablets */
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-item {
+    flex: 1 1 100%; /* 1 item per row on small devices */
+    max-width: 100%;
+  }
+}

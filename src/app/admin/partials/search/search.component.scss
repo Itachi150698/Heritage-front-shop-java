@@ -1,0 +1,30 @@
+.menu-search {
+  margin-bottom: 20px; /* Add margin below the search box to create space between search and tags */
+
+  .search-box {
+    width: 300px; /* Adjust to the desired medium size */
+    margin: 0 auto; /* Center align the search box */
+
+    .input-group {
+      display: flex; /* Use flexbox to align items horizontally */
+      width: 100%; /* Ensure it takes full width of the search box */
+
+      .form-control {
+        flex: 1; /* Allow input to take up remaining space */
+        margin-right: -1px; /* Adjust to remove space between input and button */
+        height: 38px; /* Set height to match the button */
+      }
+
+      .input-group-btn {
+        display: flex; /* Ensure button aligns properly */
+        align-items: center; /* Vertically center the button */
+
+        .btn-primary {
+          height: 38px; /* Match height of the input field */
+          flex: 0; /* Prevent button from stretching */
+          border-radius: 0; /* Remove border-radius if needed for better alignment */
+        }
+      }
+    }
+  }
+}

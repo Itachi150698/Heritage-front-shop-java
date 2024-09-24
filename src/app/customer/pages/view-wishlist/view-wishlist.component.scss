@@ -1,0 +1,63 @@
+.center-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+   .goods-page-price {
+      font-family: Arial, sans-serif; /* Or another font that supports the INR symbol */
+    }
+
+
+.product-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-details {
+  margin-top: 15px;
+}
+
+.product-details h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.product-details .description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.product-details .price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.remove-btn {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+  background-color: #e60000;
+}

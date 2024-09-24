@@ -1,0 +1,64 @@
+<!-- Body BEGIN -->
+<body class="ecommerce">
+  <div class="main">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li><a routerLink="/admin/home">Home</a></li>
+        <!-- <li><a>Store</a></li> -->
+        <li class="active">Add Category</li>
+      </ul>
+      <!-- BEGIN SIDEBAR & CONTENT -->
+      <div class="row margin-bottom-40">
+        <!-- BEGIN CONTENT -->
+        <div class="col-md-12 col-sm-12">
+          <!-- BEGIN CHECKOUT PAGE -->
+          <div class="panel-group checkout-page accordion scrollable" id="checkout-page">
+            <!-- BEGIN CHECKOUT -->
+            <div id="checkout" class="panel panel-default">
+              <div class="panel-heading">
+                <h2 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#checkout-page" href="#checkout-content" class="accordion-toggle">
+                    Add Category
+                  </a>
+                </h2>
+              </div>
+              <div id="checkout-content" class="panel-collapse collapse in">
+                <div class="panel-body row">
+                  <div class="col-md-6 col-sm-6">
+                    <h3>Add Category</h3>
+         <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+                      <div class="form-group">
+                        <label for="email-login">Name</label>
+                        <input matInput formControlName="Name" placeholder="Name" id="Name"
+                          class="form-control">
+                        <mat-error *ngIf="categoryForm.get('name')?.hasError('required')">
+                          This input is required!
+                        </mat-error>
+                      </div>
+                      <div class="form-group">
+                        <label for="password-login">Description</label>
+                        <input matInput type="text" formControlName="Description"
+                          placeholder="Description" id="Description" class="form-control">
+                        <mat-error *ngIf="categoryForm.get('description')?.hasError('required')">
+                          This input is required!
+                        </mat-error>
+                      </div>
+                      <div class="padding-top-20">
+                        <button class="btn btn-primary" type="submit">Add Category</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END CHECKOUT -->
+          </div>
+          <!-- END CHECKOUT PAGE -->
+        </div>
+        <!-- END CONTENT -->
+      </div>
+      <!-- END SIDEBAR & CONTENT -->
+    </div>
+  </div>
+</body>
+<!-- Body END -->

@@ -1,0 +1,22 @@
+<div *ngIf="!isHomePage && !isContentPage">
+  <customer-header *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn"></customer-header>
+  <customer-header *ngIf="isCustomerLoggedIn"></customer-header>
+  <admin-header *ngIf="isAdminLoggedIn"></admin-header>
+</div>
+
+<div *ngIf="isContentPage">
+  <content-navbar></content-navbar>
+<content-header></content-header>
+</div>
+
+<router-outlet></router-outlet>
+
+<div *ngIf="!isHomePage && !isContentPage">
+  <customer-footer *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn"></customer-footer>
+  <customer-footer *ngIf="isCustomerLoggedIn"></customer-footer>
+  <admin-footer *ngIf="isAdminLoggedIn"></admin-footer>
+</div>
+
+<div *ngIf="isContentPage">
+  <content-footer></content-footer>
+</div>

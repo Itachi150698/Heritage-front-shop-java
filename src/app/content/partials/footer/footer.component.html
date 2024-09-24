@@ -1,0 +1,64 @@
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Heritage Revival</h5>
+                <p>
+                    Reviving India's glorious past by bringing traditional practices, art forms, and forgotten cultural treasures into the digital era. An initiative by the Ministry of Culture to preserve and promote India's rich heritage.
+                </p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/accounts/login/?hl=en"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/?lang=en"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="quick-links">
+                    <li><a href="#">Accessibility Statement</a></li>
+                    <li><a href="#">Hyperlinking Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">All MoC Organisations</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+
+                </ul>
+            </div>
+            <div class="col-md-4">
+
+                <a href="#" class="app-btn"><img src="https://play-lh.googleusercontent.com/-eRZ7gi3YSbEb0tL63kvImFvvUA8NMrrx0u6b7QE1X2NgELq3EVe6AFi0i3Jb7nlSoY" alt="Get it on Google Play"></a>
+                <!-- <a href="#" class="app-btn"><img src="path/to/app-store-badge.png" alt="Download on the App Store"></a> -->
+                <p> The Indian Heritage Portal is a part of the National Virtual Library of India project, funded by the Ministry of Culture, Government of India. The portal has been created and developed by the Indian Institute of Technology, Bombay. Data has been provided by organisations of the Ministry of Culture.
+                <br>Copyright 2024</p>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- footer.component.html -->
+    <section id="fixed-form-container" #formContainer>
+        <div class="btn btn-expand" #btnExpand (click)="toggleExpand()">
+          {{ isExpanded ? '-' : '+' }}
+        </div>
+
+        <div class="body" *ngIf="isExpanded">
+          <form [formGroup]="contactForm" (ngSubmit)="handleSubmit($event)">
+            <div class="form-group">
+              <label for="name">Your Name:</label>
+              <input type="text" class="form-control" id="name" formControlName="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email Address:</label>
+              <input type="email" class="form-control" id="email" formControlName="email" required>
+            </div>
+            <div class="form-group">
+              <label for="description">What You Want to Know:</label>
+              <textarea id="description" class="form-control" rows="4" formControlName="description" placeholder="Enter your message here..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit</button>
+          </form>
+        </div>
+      </section>
+</footer>

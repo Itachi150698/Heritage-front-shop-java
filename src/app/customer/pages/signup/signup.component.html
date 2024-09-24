@@ -1,0 +1,130 @@
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="../../../../assets/css/img/breadcrumb.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="breadcrumb__text">
+          <h2>Sign Up</h2>
+          <div class="breadcrumb__option">
+            <a routerLink="/customer/home">Home</a>
+            <span>Sign Up</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Sign Up Form Begin -->
+<div class="contact-form spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="contact__form__title">
+          <h2>Sign Up</h2>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              class="form-control"
+              placeholder="Your Name"
+            />
+            <div *ngIf="signupForm.get('name')?.invalid && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)">
+              <div *ngIf="signupForm.get('name')?.errors?.['required']" class="text-danger">
+                Name is required.
+              </div>
+              <div *ngIf="signupForm.get('name')?.errors?.['pattern']" class="text-danger">
+                Name should only contain alphabetic characters and spaces.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              class="form-control"
+              placeholder="Your Email"
+            />
+            <div *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched)">
+              <div *ngIf="signupForm.get('email')?.errors?.['required']" class="text-danger">
+                Email is required.
+              </div>
+              <div *ngIf="signupForm.get('email')?.errors?.['email']" class="text-danger">
+                Please provide a valid email address.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="password-field">
+              <input
+                [type]="hidePassword ? 'password' : 'text'"
+                id="password"
+                formControlName="password"
+                class="form-control"
+                placeholder="Your Password"
+              />
+              <button type="button" (click)="togglePasswordVisibility()" class="btn btn-outline-secondary">
+                <i [class]="hidePassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+              </button>
+            </div>
+            <div *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched)">
+              <div *ngIf="signupForm.get('password')?.errors?.['required']" class="text-danger">
+                Password is required.
+              </div>
+              <div *ngIf="signupForm.get('password')?.errors?.['pattern']" class="text-danger">
+                Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              formControlName="confirmPassword"
+              class="form-control"
+              placeholder="Confirm Your Password"
+            />
+            <div *ngIf="signupForm.get('confirmPassword')?.invalid && (signupForm.get('confirmPassword')?.dirty || signupForm.get('confirmPassword')?.touched)">
+              <div *ngIf="signupForm.get('confirmPassword')?.errors?.['required']" class="text-danger">
+                Confirm Password is required.
+              </div>
+            </div>
+            <div *ngIf="signupForm.errors?.['mismatch']" class="text-danger">
+              Passwords do not match.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 text-center">
+          <button type="submit" class="site-btn" [disabled]="signupForm.invalid">Sign Up</button>
+        </div>
+        <div class="col-lg-12 text-center mt-3">
+          <p>
+            Already have an account? <a routerLink="/customer/login" class="text-muted">Login</a>
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Sign Up Form End -->
+
+

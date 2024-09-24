@@ -1,0 +1,155 @@
+.footer {
+    background-color: #800000;
+    color: #fff;
+    padding: 20px 0;
+  }
+  .footer h5 {
+    /* font-weight: bold; */
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-family: 'Brush Script MT', cursive;
+  }
+  .footer p {
+    font-size: 16px;
+    line-height: 1.5;
+    /* font-family: 'Brush Script MT', cursive; */
+  }
+  .footer .social-icons a {
+    color: #fff;
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  .footer .quick-links {
+    list-style: none;
+    padding: 0;
+  }
+  .footer .quick-links li {
+    margin-bottom: 10px;
+  }
+  .footer .quick-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .footer .quick-links a:hover {
+    text-decoration: underline;
+  }
+  .footer .app-btn img {
+    width: 150px;
+    margin-bottom: 10px;
+  }
+  .footer-logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .footer-logos img {
+    max-height: 50px;
+    margin: 0 10px;
+  }
+
+  #fixed-form-container {
+    position: fixed;
+    bottom: 0;
+    left: 2%;
+    width: 96%;
+    max-width: 400px;
+    text-align: center;
+    margin: 0;
+
+    transition: opacity 0.3s ease; /* Smooth transition */
+  }
+
+  #fixed-form-container.visible {
+    opacity: 1; /* Show when visible */
+  }
+
+  #fixed-form-container .btn {
+    font-size: 1em; /* Adjust font size if needed */
+    cursor: pointer;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    padding: 8px; /* Adjust padding */
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  #fixed-form-container .btn:hover {
+    background-color: #007bff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+  }
+
+  #fixed-form-container .btn-expand {
+    width: 40px; /* Reduced width */
+    height: 40px; /* Reduced height */
+    display: none; /* Hidden by default */
+  }
+
+  #fixed-form-container .body {
+    background-color: #e25454;
+    border-radius: 15px;
+    border: 2px solid #e25454;
+    margin-top: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  #fixed-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-control {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  textarea.form-control {
+    resize: vertical; /* Allows vertical resizing of textarea */
+  }
+
+  .btn-submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-submit:hover {
+    background-color: #0056b3;
+  }
+
+  @media only screen and (min-width: 768px) {
+    #fixed-form-container {
+      left: 20px;
+      width: 380px;
+    }
+
+    #fixed-form-container .btn {
+      width: 50px; /* Adjust if necessary */
+      height: 50px; /* Adjust if necessary */
+    }
+
+    #fixed-form-container .body {
+      padding: 30px;
+      border-radius: 10px;
+    }
+  }

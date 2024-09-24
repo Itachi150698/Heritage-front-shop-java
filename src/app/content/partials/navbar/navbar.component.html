@@ -1,0 +1,58 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" routerLink="/">
+        <img src="../assets/dancing.png" alt="Logo" width="50" height="50" class="mr-2">
+        <h1 class="mb-0" style="font-family: 'Brush Script MT', cursive;">Indian Heritage Revival</h1>
+      </a>
+
+      <!-- Navbar Toggler for mobile view -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="d-flex w-100 justify-content-between">
+          <ul class="navbar-nav mr-auto d-none d-lg-flex">
+            <!-- Existing nav items -->
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="collapse" data-target="#destinationsImages">Heritage Sites <i class="fas fa-chevron-down"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="collapse" data-target="#experienceImages">Culture <i class="fas fa-chevron-down"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="collapse" data-target="#travelImages">Art <i class="fas fa-chevron-down"></i></a>
+            </li>
+            <!-- New nav item for "Our Heritage" -->
+
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="ourHeritageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Our Heritage
+              </a>
+              <div class="dropdown-menu" aria-labelledby="ourHeritageDropdown">
+                <a class="dropdown-item" routerLink="content/site-cultural">Heritage Sites</a>
+                <a class="dropdown-item" routerLink="content/cultural">Culture</a>
+                <a class="dropdown-item" routerLink="content/art-heritage">Heritage Art</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="content/about">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" routerLink="customer/home">
+                <i class="fas fa-shopping-cart"></i> Shop
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

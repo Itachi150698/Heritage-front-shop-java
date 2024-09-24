@@ -1,0 +1,251 @@
+
+
+  .custom-heading {
+    color: #800000;
+    line-height: 1.3em;
+    text-transform: uppercase;
+    background-image: url(../../../../assets/images/images/orange-star-img.png),
+                      url(../../../../assets/images/images/orange-star-img.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 .25em, right .25em;
+    background-size: 30px auto, 30px auto;
+    display: inline-table;
+    padding: 0 80px;
+    font-family: Impact,sans-serif;
+  }
+  .typing-effect {
+    font-size: 2.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid rgba(19, 17, 17, 0.75);
+    width: 29ch; /* Adjusted based on the length of the text */
+    animation: typing 6s steps(29) infinite, blink .75s step-end infinite;
+    background: linear-gradient(45deg, #6d033f, #d7b1e5); /* Colorful gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* For gradient text effect */
+    text-align: left; /* Align text to the left */
+}
+
+@keyframes typing {
+    0% { width: 0; }
+    50% { width: 29ch; } /* Adjust to match the number of characters */
+    100% { width: 0; } /* Start from the beginning after finishing */
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: rgba(19, 17, 17, 0.75); }
+}
+
+.animate-text {
+    font-size: 1.2rem;
+    color: #0a0a0a; /* Dark color for better contrast */
+    animation: fadeInOut 8s ease-in-out infinite; /* Add fading effect */
+    text-align: left; /* Align text to the left */
+    margin-bottom: 1rem; /* Add space between paragraphs */
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+   .comment-section {
+    margin-top: 40px;
+}
+
+.custom-heading {
+    color: #800000;
+    font-size: 24px;
+    margin-top: 20px;
+    text-align: center; /* Center-align heading for emphasis */
+}
+
+.media {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 15px;
+
+    background-color: rgba(241, 237, 237, 0.589); /* Transparent background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for normal state */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.media:hover {
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow for hover effect */
+    transform: translateY(-10px) scale(1.05); /* 3D lift and scale effect on hover */
+}
+
+.container {
+    width: 90%; /* Increase the width of the container */
+    padding-left: 20px; /* Adjust the left padding if necessary */
+    padding-right: 20px; /* Adjust the right padding if necessary */
+}
+
+.card img {
+    width: 100%; /* Ensure the image takes the full width of the card */
+    height: auto; /* Maintain the aspect ratio of the images */
+}
+
+.row {
+    margin-left: -5px; /* Adjust the spacing between cards */
+    margin-right: -5px; /* Adjust the spacing between cards */
+}
+
+.col-md-4 {
+    padding-left: 3px; /* Adjust the spacing between cards */
+    padding-right: 3px; /* Adjust the spacing between cards */
+}
+
+
+.media-body {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.media-body h4 {
+    font-size: 20px;
+    color: #050505;
+    margin-bottom: 10px;
+}
+
+.media-body p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #080808;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #800000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow to buttons */
+}
+
+.btn:hover {
+    background-color: #f70303;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.both-border {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow to bottom border section */
+    background-color: #ffffffb9; /* Adding background color for better contrast */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.bottom-border {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow to bottom border section */
+    background-color: #ffffffb9; /* Adding background color for better contrast */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+@media (max-width: 768px) {
+    .media {
+        flex-direction: column;
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .media-body {
+        text-align: left;
+        padding-left: 0; /* Remove padding on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .media-body h4 {
+        font-size: 18px;
+    }
+
+    .media-body p {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+
+  .carousel1 {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 20px;
+  }
+
+  .carousel1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 60%;
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      opacity: 0.3;
+      border-radius: 15px;
+  }
+
+  .carousel-item1 {
+      position: relative;
+      margin: 0 5px;
+      transition: transform 0.3s ease, z-index 0.3s ease;
+  }
+
+  .carousel-item1 img {
+      width: 160px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+  }
+
+  .carousel-item1:hover {
+      transform: scale(1.7);
+      z-index: 10;
+  }
+
+  .carousel-caption1 {
+      position: absolute;
+      top: 50%; /* Centers vertically */
+      left: 50%; /* Centers horizontally */
+      transform: translate(-50%, -50%); /* Centers the caption exactly */
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+      text-align: center; /* Centers text within the caption */
+  }
+
+  .carousel-item1:hover .carousel-caption1 {
+      opacity: 1;
+  }
+
+
+

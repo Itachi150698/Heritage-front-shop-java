@@ -1,0 +1,66 @@
+<!-- BEGIN TOP SEARCH -->
+            <li class="menu-search">
+              <div class="search-box">
+                <form [formGroup]="searchProductForm" (ngSubmit)="submitForm()">
+                  <div class="input-group">
+                    <input type="text" placeholder="Search" formControlName="title" class="form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-primary" type="submit">Search</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <!-- END TOP SEARCH -->
+
+<div class="category-tags">
+  <!-- "All" tag to show all products -->
+  <button (click)="filterByCategory(null)" class="category-tag">
+    All
+  </button>
+   <!-- Category tags -->
+  <button *ngFor="let category of categories" (click)="filterByCategory(category.id)" class="category-tag">
+    {{ category.name }}
+  </button>
+</div>
+
+<div class="main">
+  <div class="container">
+    <!-- BEGIN PRODUCTS -->
+    <div class="row margin-bottom-40">
+      <div class="col-md-12 sale-product">
+        <h2>Products</h2>
+        <div class="product-grid">
+          <div *ngFor="let product of filteredProducts" class="product-item">
+            <div class="pi-img-wrapper">
+              <img [src]="product.processedImg" class="img-responsive" [alt]="product.name">
+              <div>
+                <a [href]="product.processedImg" class="btn btn-default fancybox-button">Zoom</a>
+                <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+              </div>
+            </div>
+            <h3><a>{{ product.name }}</a></h3>
+            <p class="description" [class.expanded]="isExpanded[product.id]">{{ product.description }}</p>
+  <button class="btn btn-default read-more" (click)="toggleDescription(product.id)">
+    {{ isExpanded[product.id] ? 'Read Less' : 'Read More' }}
+  </button>
+            <hr>
+               <div class="category-name">Category: {{ product.categoryName }}</div>
+            <div class="pi-price">{{ product.price | currency:'INR':true:'1.2-2' }}</div> <br> <br>
+            <div class="product-buttons">
+              <button class="btn btn-default" [routerLink]="'/admin/faq/' + product.id">FAQ</button>
+              <button class="btn btn-default" [routerLink]="'/admin/product/' + product.id">Update</button>
+              <button class="btn btn-default" (click)="deleteProduct(product.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END PRODUCTS -->
+  </div>
+</div>
+
+
+
+
+

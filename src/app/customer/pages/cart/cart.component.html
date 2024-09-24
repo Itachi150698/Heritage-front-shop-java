@@ -1,0 +1,97 @@
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="../../../../assets/css/img/breadcrumb.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="breadcrumb__text">
+          <h2>Shopping Cart</h2>
+          <div class="breadcrumb__option">
+            <a routerLink="/customer/home">Home</a>
+            <span>Shopping Cart</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Shopping Cart Section Begin -->
+<section class="shoping-cart spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="shoping__cart__table">
+          <table>
+            <thead>
+              <tr>
+                <th class="shoping__product">Products</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cartItems">
+                <td class="shoping__cart__item">
+                  <img [src]="item.processedImg" alt="product-image" style="width: 100px; height: 100px;">
+                  <h5>{{ item.productName }}</h5>
+                </td>
+                <td class="shoping__cart__price">
+                  {{ item.price | currency }}
+                </td>
+                <!-- Quantity Controls -->
+                <td class="shoping__cart__quantity">
+                  <div class="quantity">
+                    <div class="pro-qty">
+                      <span class="quantity-control decrease" [class.disabled]="item.quantity === 1" (click)="item.quantity > 1 && decreaseQuantity(item.productId)">-</span>
+                      <input type="text" [value]="item.quantity" readonly>
+                      <span class="quantity-control increase" (click)="increaseQuantity(item.productId)">+</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="shoping__cart__total">
+                  {{ (item.price * item.quantity) | currency }}
+                </td>
+                <td class="shoping__cart__item__close">
+                  <span class="icon_close" (click)="removeFromCart(item.productId)"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="shoping__cart__btns">
+          <a routerLink="/customer/home" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="shoping__continue">
+          <div class="shoping__discount">
+            <h5>Discount Codes</h5>
+            <!-- Coupon Form -->
+            <form [formGroup]="couponForm" (ngSubmit)="applyCoupon()">
+              <input formControlName="code" type="text" placeholder="Enter your coupon code">
+              <button type="submit" class="site-btn" [disabled]="couponForm.invalid">APPLY COUPON</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="shoping__checkout">
+          <h5>Cart Total</h5>
+          <ul>
+            <li>Subtotal <span>{{ order.amount | currency }}</span></li>
+            <li>Total <span>{{ order.totalAmount | currency }}</span></li>
+          </ul>
+          <a (click)="placeOrder()" class="primary-btn">PROCEED TO CHECKOUT</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Shopping Cart Section End -->

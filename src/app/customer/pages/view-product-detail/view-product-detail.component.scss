@@ -1,0 +1,17 @@
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+.quantity-controls {
+  border: 1px solid red; /* Temporary border for debugging */
+}
+
+.quantity-btn {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+.quantity {
+  margin: 0 10px;
+  font-size: 16px;
+}
