@@ -44,21 +44,7 @@
             <div class="product__details__price">{{ product.price | currency:'INR':true:'1.2-2'}}</div>
             <p>{{ product.description }}</p>
 
-<!-- Quantity Controls -->
-<div class="product__details__quantity" *ngIf="cartItems && cartItems.length > 0">
-  <div class="quantity" *ngFor="let item of cartItems">
-    <div class="pro-qty">
-      <button class="quantity-btn decrease-btn" [disabled]="item.quantity <= 1"
-        (click)="decreaseQuantity(item.productId)">
-        <span class="icon">-</span>
-      </button>
-      <input type="text" [value]="item.quantity" readonly>
-      <button class="quantity-btn increase-btn" (click)="increaseQuantity(item.productId)">
-        <span class="icon">+</span>
-      </button>
-    </div>
-  </div>
-</div>
+
 
 
 

@@ -84,58 +84,6 @@ export class ViewProductDetailComponent implements OnInit {
     );
   }
 
-  increaseQuantity(productId: any) {
-    const item = this.cartItems.find((item) => item.productId === productId);
-    if (item) {
-      item.quantity += 1;  // Increase quantity in UI immediately
-
-      this.customerService.increaseProductQuantity(productId).subscribe(
-        (res) => {
-          console.log('Product quantity increased');
-          this.product.quantity = item.quantity;  // Sync product quantity with cart
-        },
-        (error) => {
-          console.error('Error increasing quantity', error);
-          item.quantity -= 1;  // Rollback in case of server error
-          this.product.quantity = item.quantity;  // Rollback the current product's quantity
-        }
-      );
-    }
-  }
-
-  decreaseQuantity(productId: any) {
-    const item = this.cartItems.find((item) => item.productId === productId);
-    if (item && item.quantity > 1) {
-      item.quantity -= 1;  // Decrease quantity in UI immediately
-
-      this.customerService.decreaseProductQuantity(productId).subscribe(
-        (res) => {
-          console.log('Product quantity decreased');
-          this.product.quantity = item.quantity;  // Sync product quantity with cart
-        },
-        (error) => {
-          console.error('Error decreasing quantity', error);
-          item.quantity += 1;  // Rollback in case of server error
-          this.product.quantity = item.quantity;  // Rollback the current product's quantity
-        }
-      );
-    }
-  }
-
-
-
-
-    removeFromCart(productId: any) {
-  this.customerService.removeProductFromCart(productId).subscribe(
-    res => {
-      console.log('Product removed from cart', 'Close', { duration: 5000 });
-      this.getCart(); // Refresh the cart after the product is removed
-    },
-    error => {
-      console.log('Error removing product from cart', 'Close', { duration: 5000 });
-    }
-  );
-}
 
   getAllCategories(): void {
     this.adminService.getAllCategories().subscribe({

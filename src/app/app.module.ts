@@ -11,9 +11,6 @@ import { CustomerModule } from "./customer/customer.module";
 import { ToastrModule } from 'ngx-toastr';
 import { AdminModule } from "./admin/admin.module";
 import { NgxImageZoomModule } from 'ngx-image-zoom';
-import { ContentModule } from "./content/content.module";
-import { DynamicResourceLoaderService } from './services/dynamic/dynamic-resource-loader.service';
-
 @NgModule({
   declarations: [
     AppComponent
@@ -36,11 +33,9 @@ import { DynamicResourceLoaderService } from './services/dynamic/dynamic-resourc
     }),
     AdminModule,
     NgxImageZoomModule,
-    ContentModule
 ],
   providers: [
-    provideAnimationsAsync(),
-    [DynamicResourceLoaderService]
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

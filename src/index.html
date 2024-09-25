@@ -6,131 +6,31 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="./assets/css/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/css/style.css" type="text/css">
 </head>
 <body>
     <app-root></app-root>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const buttons = document.querySelectorAll('[data-toggle="collapse"]');
-          const navbarToggler = document.querySelector('.navbar-toggler');
-          const navbarNav = document.getElementById('navbarNav');
 
-          buttons.forEach(button => {
-            button.addEventListener('click', function () {
-              const targetId = this.getAttribute('data-target');
-              const targetElement = document.querySelector(targetId);
-              const isVisible = targetElement.classList.contains('show');
-
-              buttons.forEach(btn => {
-                const target = btn.getAttribute('data-target');
-                const element = document.querySelector(target);
-                if (element !== targetElement) {
-                  $(element).collapse('hide');
-                }
-              });
-
-              if (isVisible) {
-                $(targetElement).collapse('hide');
-              } else {
-                $(targetElement).collapse('show');
-              }
-            });
-          });
-
-          navbarToggler.addEventListener('click', function () {
-            const isExpanded = navbarNav.classList.contains('show');
-            if (!isExpanded) {
-              $('.collapse').collapse('hide');
-            }
-          });
-        });
-</script>
-<!-- cousel -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const track = document.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const nextButton = document.querySelector('#scroll-right');
-        const prevButton = document.querySelector('#scroll-left');
-        let autoPlayInterval;
-        const slideWidth = slides[0].getBoundingClientRect().width;
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            const offset = -slideWidth * currentIndex;
-            track.style.transform = `translateX(${offset}px)`;
-        }
-
-        function goToSlide(index) {
-            currentIndex = index;
-            updateCarousel();
-        }
-
-        function startAutoPlay() {
-            autoPlayInterval = setInterval(() => {
-                if (currentIndex < slides.length - 3) {
-                    goToSlide(currentIndex + 1);
-                } else {
-                    goToSlide(0); // Loop back to the start
-                }
-            }, 3000); // Change slide every 3 seconds
-        }
-
-        function stopAutoPlay() {
-            clearInterval(autoPlayInterval);
-        }
-
-        nextButton.addEventListener('click', () => {
-            stopAutoPlay();
-            if (currentIndex < slides.length - 1) {
-                goToSlide(currentIndex + 1);
-            } else {
-                goToSlide(0); // Loop back to the start
-            }
-            startAutoPlay();
-        });
-
-        prevButton.addEventListener('click', () => {
-            stopAutoPlay();
-            if (currentIndex > 0) {
-                goToSlide(currentIndex - 1);
-            } else {
-                goToSlide(slides.length - 1); // Loop back to the end
-            }
-            startAutoPlay();
-        });
-
-        // Auto-play functionality
-        startAutoPlay();
-
-        // Hover functionality to stop auto-play
-        slides.forEach(slide => {
-            slide.addEventListener('mouseover', () => {
-                stopAutoPlay();
-            });
-
-            slide.addEventListener('mouseleave', () => {
-                startAutoPlay();
-            });
-        });
-    });
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              entry.target.querySelector('.overlay-text').classList.add('show');
-          }
-      });
-  });
-
-  observer.observe(document.querySelector('.image-section'));
-});
-
-</script>
-<!-- slider carousel -->
+        <!-- Js Plugins -->
+    <script src="./assets/css/js/jquery-3.3.1.min.js"></script>
+    <script src="./assets/css/js/bootstrap.min.js"></script>
+    <script src="./assets/css/js/jquery.nice-select.min.js"></script>
+    <script src="./assets/css/js/jquery-ui.min.js"></script>
+    <script src="./assets/css/js/jquery.slicknav.js"></script>
+    <script src="./assets/css/js/mixitup.min.js"></script>
+    <script src="./assets/css/js/owl.carousel.min.js"></script>
+    <script src="./assets/css/js/main.js"></script>
 </body>
 </html>
