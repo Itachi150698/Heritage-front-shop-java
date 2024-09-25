@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: #e0d6c3; /* Soft beige base color */
+  background-image: url('assets/img/7096228.jpg');
+  background-blend-mode: overlay; /* Blends the gradient with the texture */
+  background-size: cover;
+  background-position: center;
+}
