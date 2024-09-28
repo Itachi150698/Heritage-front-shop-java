@@ -1,1 +1,136 @@
-<p>place-order works!</p>
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" [ngStyle]="{'background-image': 'url(/assets/css/img/image.jpg)'}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Checkout</h2>
+                    <div class="breadcrumb__option">
+                        <a routerLink="/customer/home">Home</a>
+                        <span>Checkout</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form">
+            <h4>Billing Details</h4>
+            <form (ngSubmit)="placeOrder()" [formGroup]="orderForm">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>First Name<span>*</span></p>
+                                    <input type="text" formControlName="firstName" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Last Name<span>*</span></p>
+                                    <input type="text" formControlName="lastName" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Country<span>*</span></p>
+                            <input type="text" formControlName="country" required>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Address<span>*</span></p>
+                            <input type="text" formControlName="street" placeholder="Street Address" class="checkout__input__add" required>
+                            <input type="text" formControlName="apartment" placeholder="Apartment, suite, unit, etc. (optional)">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Town/City<span>*</span></p>
+                            <input type="text" formControlName="city" required>
+                        </div>
+                        <div class="checkout__input">
+                            <p>State<span>*</span></p>
+                            <input type="text" formControlName="state" required>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Postcode / ZIP<span>*</span></p>
+                            <input type="text" formControlName="postalCode" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Phone<span>*</span></p>
+                                    <input type="text" formControlName="phone" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Email<span>*</span></p>
+                                    <input type="email" formControlName="email" required>
+                                </div>
+                            </div>
+                            <button type="button" class="site-btn" (click)="saveAddress()">Save Address</button>
+                        </div>
+                        <!-- List of Saved Addresses -->
+                        <div *ngIf="addresses.length > 0">
+                            <h3>Saved Addresses</h3>
+                            <ul class="saved-addresses-list">
+                                <li *ngFor="let address of addresses; let i = index">
+                                    <input type="radio" name="selectedAddress" [value]="i" (change)="selectAddress(i)">
+                                    {{ address.firstName }} {{ address.lastName }}, {{ address.street }}, {{ address.city }}, {{ address.state }} {{ address.postalCode }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="checkout__order">
+                            <h4>Your Order</h4>
+                            <div class="checkout__order__products">Products <span>Total</span></div>
+                            <ul>
+                                <li>Vegetable’s Package <span>$75.99</span></li>
+                                <li>Fresh Vegetable <span>$151.99</span></li>
+                                <li>Organic Bananas <span>$53.99</span></li>
+                            </ul>
+                            <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
+                            <div class="checkout__order__total">Total <span>$750.99</span></div>
+                            <div class="checkout__input__checkbox">
+                                <label for="acc-or">
+                                    Create an account?
+                                    <input type="checkbox" id="acc-or">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="checkout__input__checkbox">
+                                <label for="payment">
+                                    Check Payment
+                                    <input type="checkbox" id="payment">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="paypal">
+                                    Paypal
+                                    <input type="checkbox" id="paypal">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <button type="submit" class="site-btn" [disabled]="orderForm.invalid">PLACE ORDER</button>
+                            <!-- Retry Payment Button -->
+                            <div *ngIf="showRetryPaymentButton" class="retry-payment">
+                                <h4>Payment Failed</h4>
+                                <p>Would you like to retry the payment?</p>
+                                <button class="site-btn" (click)="retryPayment()">Retry Payment</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Checkout Section End -->
+

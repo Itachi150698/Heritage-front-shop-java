@@ -1,5 +1,5 @@
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="../../../../assets/css/img/breadcrumb.jpg">
+<section class="breadcrumb-section set-bg" [ngStyle]="{'background-image': 'url(/assets/css/img/image.jpg)'}">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -33,26 +33,30 @@
               </tr>
             </thead>
             <tbody>
+              <tr *ngIf="cartItems.length === 0">
+                <td colspan="5" style="text-align: center;">Your cart is empty.</td>
+              </tr>
               <tr *ngFor="let item of cartItems">
                 <td class="shoping__cart__item">
                   <img [src]="item.processedImg" alt="product-image" style="width: 100px; height: 100px;">
                   <h5>{{ item.productName }}</h5>
                 </td>
                 <td class="shoping__cart__price">
-                  {{ item.price | currency }}
+                  {{ item.price | currency : "INR" : true : "1.2-2" }}
                 </td>
-                <!-- Quantity Controls -->
                 <td class="shoping__cart__quantity">
                   <div class="quantity">
                     <div class="pro-qty">
-                      <span class="quantity-control decrease" [class.disabled]="item.quantity === 1" (click)="item.quantity > 1 && decreaseQuantity(item.productId)">-</span>
+                      <span class="quantity-control decrease" [class.disabled]="item.quantity === 1"
+                            (click)="item.quantity > 1 && decreaseQuantity(item.productId)">-</span>
                       <input type="text" [value]="item.quantity" readonly>
-                      <span class="quantity-control increase" (click)="increaseQuantity(item.productId)">+</span>
+                      <span class="quantity-control increase"
+                            (click)="increaseQuantity(item.productId)">+</span>
                     </div>
                   </div>
                 </td>
                 <td class="shoping__cart__total">
-                  {{ (item.price * item.quantity) | currency }}
+                  {{ (item.price * item.quantity) | currency : "INR" : true : "1.2-2" }}
                 </td>
                 <td class="shoping__cart__item__close">
                   <span class="icon_close" (click)="removeFromCart(item.productId)"></span>
@@ -73,7 +77,6 @@
         <div class="shoping__continue">
           <div class="shoping__discount">
             <h5>Discount Codes</h5>
-            <!-- Coupon Form -->
             <form [formGroup]="couponForm" (ngSubmit)="applyCoupon()">
               <input formControlName="code" type="text" placeholder="Enter your coupon code">
               <button type="submit" class="site-btn" [disabled]="couponForm.invalid">APPLY COUPON</button>
@@ -85,13 +88,16 @@
         <div class="shoping__checkout">
           <h5>Cart Total</h5>
           <ul>
-            <li>Subtotal <span>{{ order.amount | currency }}</span></li>
-            <li>Total <span>{{ order.totalAmount | currency }}</span></li>
+            <li>Subtotal <span>{{ order.amount | currency : "INR" : true : "1.2-2" }}</span></li>
+            <li *ngIf="order.couponName">Coupon Applied: <span>{{ order.couponName }}</span></li>
+            <li *ngIf="order.discount > 0">Discount <span>-{{ order.discount | currency : "INR" : true : "1.2-2" }}</span></li>
+            <li>Total <span>{{ order.totalAmount | currency : "INR" : true : "1.2-2" }}</span></li>
           </ul>
-          <a (click)="placeOrder()" class="primary-btn">PROCEED TO CHECKOUT</a>
+          <a class="primary-btn" routerLink="/customer/checkout/{id}">PROCEED TO CHECKOUT</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 <!-- Shopping Cart Section End -->
+

@@ -98,22 +98,28 @@ export class ViewProductDetailComponent implements OnInit {
   }
 
   // Add product to cart
-  addToCart(id: number) {
-    if (!UserStorageService.isCustomerLoggedIn()) {
-      this.toastr.warning('Please log in to add items to your cart.');
-      this.router.navigate(['/customer/login']);
-      return;
-    }
+addToCart(id: number) {
+  if (!UserStorageService.isCustomerLoggedIn()) {
+    this.toastr.warning('Please log in to add items to your cart.');
+    this.router.navigate(['/customer/login'], { queryParams: { returnUrl: this.router.url } });
+    return;
+  }
 
-    this.customerService.addProductToCart(id).subscribe({
-      next: () => {
-        this.toastr.success('Product added to cart successfully!', 'Success');
-      },
-      error: () => {
+  this.customerService.addProductToCart(id).subscribe({
+    next: () => {
+      this.toastr.success('Product added to cart successfully!', 'Success');
+    },
+    error: (error) => {
+      if (error.status === 409) {
+        // If product already exists in the cart, show a custom message
+        this.toastr.info('Product already exists in your cart.', 'Info');
+      } else {
         this.toastr.error('Failed to add product to cart', 'Error');
       }
-    });
-  }
+    }
+  });
+}
+
 
   navigateToCategory(categoryId: number): void {
     this.router.navigate(['/customer/products-list'], { queryParams: { categoryId } })

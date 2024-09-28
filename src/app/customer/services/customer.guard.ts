@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { UserStorageService } from '../../services/storage/user-storage.service';
+import { UserStorageService } from '../../services/storage/user-storage.service'; // Your service path
 import { ToastrService } from 'ngx-toastr';
 
 export const customerGuard: CanActivateFn = (route, state) => {
@@ -14,7 +14,10 @@ export const customerGuard: CanActivateFn = (route, state) => {
   console.log('Guard check:', { isLoggedIn, isCustomer });
 
   if (!isLoggedIn || !isCustomer) {
+    // Show warning message
     toastr.warning('Please log in as a customer to access this page.');
+
+    // Redirect to login and preserve the current URL for redirecting after login
     router.navigate(['/customer/login'], { queryParams: { returnUrl: state.url } });
     return false;
   }

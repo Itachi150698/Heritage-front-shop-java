@@ -19,6 +19,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { PlaceOrderComponent } from './pages/place-order/place-order.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     CartComponent,
     PlaceOrderComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    MyOrdersComponent
   ],
   imports: [
     CommonModule,
