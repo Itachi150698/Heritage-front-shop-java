@@ -1,66 +1,48 @@
-<!-- BEGIN TOP SEARCH -->
-            <li class="menu-search">
-              <div class="search-box">
-                <form [formGroup]="searchProductForm" (ngSubmit)="submitForm()">
-                  <div class="input-group">
-                    <input type="text" placeholder="Search" formControlName="title" class="form-control">
-                    <span class="input-group-btn">
-                      <button class="btn btn-primary" type="submit">Search</button>
-                    </span>
-                  </div>
-                </form>
-              </div>
-            </li>
-            <!-- END TOP SEARCH -->
+<form [formGroup]="searchProductForm" class="search-form" (submit)="submitForm()">
+  <mat-form-field appearance="outline" class="search-input">
+<mat-label>Enter Keyword to search</mat-label>
+<input matInput formControlName="title">
 
-<div class="category-tags">
-  <!-- "All" tag to show all products -->
-  <button (click)="filterByCategory(null)" class="category-tag">
-    All
-  </button>
-   <!-- Category tags -->
-  <button *ngFor="let category of categories" (click)="filterByCategory(category.id)" class="category-tag">
-    {{ category.name }}
-  </button>
-</div>
+<button mat-button matSuffix color="primary" [disabled]="searchProductForm.invalid">
+  <mat-icon>search</mat-icon>
+</button>
+  </mat-form-field>
+</form>
 
-<div class="main">
-  <div class="container">
-    <!-- BEGIN PRODUCTS -->
-    <div class="row margin-bottom-40">
-      <div class="col-md-12 sale-product">
-        <h2>Products</h2>
-        <div class="product-grid">
-          <div *ngFor="let product of filteredProducts" class="product-item">
-            <div class="pi-img-wrapper">
-              <img [src]="product.processedImg" class="img-responsive" [alt]="product.name">
-              <div>
-                <a [href]="product.processedImg" class="btn btn-default fancybox-button">Zoom</a>
-                <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-              </div>
-            </div>
-            <h3><a>{{ product.name }}</a></h3>
-            <p class="description" [class.expanded]="isExpanded[product.id]">{{ product.description }}</p>
-  <button class="btn btn-default read-more" (click)="toggleDescription(product.id)">
-    {{ isExpanded[product.id] ? 'Read Less' : 'Read More' }}
-  </button>
-            <hr>
-               <div class="category-name">Category: {{ product.categoryName }}</div>
-            <div class="pi-price">{{ product.price | currency:'INR':true:'1.2-2' }}</div> <br> <br>
-            <div class="product-buttons">
-              <button class="btn btn-default" [routerLink]="'/admin/faq/' + product.id">FAQ</button>
-              <button class="btn btn-default" [routerLink]="'/admin/product/' + product.id">Update</button>
-              <button class="btn btn-default" (click)="deleteProduct(product.id)">Delete</button>
-            </div>
-          </div>
+<div class="product-list">
+
+  <mat-card class="product-card" *ngFor="let product of products">
+    <div class="product-image">
+      <img [src]="product.processedImg" alt="product-image">
+    </div>
+    <div class="product-details">
+      <h2 class="product-name">{{product.name}}</h2>
+      <p class="product-description">{{product.description}}</p>
+
+      <mat-divider></mat-divider>
+      <div class="product-info">
+        <div class="info-row">
+          <span class="info-label">Price:</span>
+          <span class="info-value">${{product.price}}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Category:</span>
+          <span class="info-value">{{product.categoryName}}</span>
         </div>
       </div>
+
+      <mat-divider></mat-divider>
+      <div class="actions">
+        <button mat-raised-button color="primary" class="update-button" [routerLink]="'/admin/faq/' + product.id">
+          FAQ
+        </button>
+        <button mat-raised-button color="accent" class="update-button" [routerLink]="'/admin/product/' + product.id">
+          Update
+        </button>
+        <button mat-raised-button color="warn" class="delete-button" (click)="deleteProduct(product.id)">
+          Delete
+        </button>
+      </div>
     </div>
-    <!-- END PRODUCTS -->
-  </div>
+  </mat-card>
 </div>
-
-
-
-
-

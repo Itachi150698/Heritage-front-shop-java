@@ -17,6 +17,12 @@ export class PlaceOrderComponent implements OnInit {
   selectedAddressIndex: number | null = null; // Holds the index of the selected address
   showRetryPaymentButton: boolean = false; // Flag to display the retry payment button
   lastOrder: any; // Variable to hold the last order details temporarily
+    cartItems: any[] = [];
+  order: any = { amount: 0, totalAmount: 0, discount: 0 };
+  couponForm!: FormGroup;
+  appliedCouponCode: string | null = null;
+cartDetails: { items: any[], amount: number, totalAmount: number } = { items: [], amount: 0, totalAmount: 0 };
+
 
   constructor(
     private fb: FormBuilder,
@@ -29,6 +35,10 @@ export class PlaceOrderComponent implements OnInit {
     this.initializeOrderForm();
     this.fetchTotalAmount();
     this.loadSavedAddresses();
+    if (this.router.getCurrentNavigation()?.extras.state) {
+        this.cartDetails = this.router.getCurrentNavigation().extras.state.cartDetails || { items: [], amount: 0, totalAmount: 0 };
+    }
+    console.log(this.cartDetails)
   }
 
   // Initialize the order form with validators

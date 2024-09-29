@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean;
   categories: any[] = [];
   isCategoriesOpen = false;
+    isMenuOpen: boolean = false;
 
   constructor(
     private router: Router,
@@ -25,6 +26,11 @@ export class HeaderComponent implements OnInit {
     this.isLoggedIn = UserStorageService.getToken() !== null;
     // Fetch all categories
     this.getAllCategories();
+  }
+
+    // This method toggles the menu visibility
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
     // Toggle the categories menu

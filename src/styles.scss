@@ -2,10 +2,13 @@
 
 
 body {
-  background-color: #ffc64057;
+  // background-color: #ffc64057;
   // background-image: url('assets/img/7096228.jpg');
   background-blend-mode: overlay;
   background-size: cover;
   background-position: center;
   overflow-x: hidden;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
