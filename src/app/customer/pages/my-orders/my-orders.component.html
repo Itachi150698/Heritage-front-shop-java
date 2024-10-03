@@ -19,11 +19,12 @@
 <div class="my-orders-container">
 
   <!-- Success Message -->
-  <div *ngIf="paymentStatus === 'success'">
+  <div *ngIf="paymentStatus === 'success'" class="success-message">
     <h2>Your Order Placed Successfully!</h2>
     <p>Thank you for your purchase. Here are the details of your current order:</p>
 
-    <div class="current-orders" *ngIf="myOrders.length > 0">
+    <!-- Uncommented when needed -->
+    <!-- <div class="current-orders" *ngIf="myOrders.length > 0">
       <h3>Current Order Details</h3>
       <div *ngFor="let myOrder of myOrders" class="order-card">
         <p><strong>Tracking ID:</strong> {{ myOrder.trackingId }}</p>
@@ -36,42 +37,18 @@
           <button (click)="navigateToReview(myOrder.id)" class="review-button">Review</button>
         </span>
       </div>
-    </div>
+    </div> -->
 
-    <div *ngIf="myOrders.length === 0">
-      <p>No current orders found.</p>
-    </div>
+    <button class="continue-shopping-button" (click)="navigateToHome()">Continue Shopping</button>
   </div>
 
   <!-- Failure Message -->
-  <div *ngIf="paymentStatus === 'failed'">
+  <div *ngIf="paymentStatus === 'failed'" class="error-message">
     <h2>Payment Failed</h2>
     <p>Unfortunately, your payment could not be processed at this time. Please try again later.</p>
     <button class="retry-button" (click)="navigateToRetry(myOrders.length > 0 ? myOrders[0].id : null)">
       Retry Payment
     </button>
   </div>
-
-  <!-- View All Orders Button -->
-  <div class="view-all-orders">
-    <button (click)="showAllOrders = !showAllOrders" class="view-all-button">
-      {{ showAllOrders ? 'Hide All Orders' : 'View All Orders' }}
-    </button>
-  </div>
-
-  <!-- Previous Orders Section -->
-  <div *ngIf="showAllOrders" class="previous-orders">
-    <h3>Previous Orders</h3>
-    <div *ngFor="let order of previousOrders" class="order-card">
-      <p><strong>Tracking ID:</strong> {{ order.trackingId }}</p>
-      <p><strong>Amount:</strong> {{ order.amount | currency }}</p>
-      <p><strong>Description:</strong> {{ order.orderDescription }}</p>
-      <p><strong>Address:</strong> {{ order.address }}</p>
-      <p><strong>Date:</strong> {{ order.date | date: 'dd/MM/yyyy' }}</p>
-      <p><strong>Status:</strong> {{ order.orderStatus }}</p>
-      <span *ngIf="order.orderStatus === 'Delivered'">
-        <button (click)="navigateToReview(order.id)" class="review-button">Review</button>
-      </span>
-    </div>
-  </div>
 </div>
+

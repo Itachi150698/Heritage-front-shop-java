@@ -170,7 +170,7 @@ getWishlistByUserId() {
       // No success toastr message on page load
     },
     error: () => {
-      // Only show error if user is logged in and there's an issue fetching the wishlist
+
       this.toastr.error('Failed to load wishlist', 'Error');
     }
   });

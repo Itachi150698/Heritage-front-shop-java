@@ -70,6 +70,10 @@ export class MyOrdersComponent implements OnInit {
   }
 
   retryPayment(): void {
-    console.log('Retrying payment...'); // Placeholder for actual retry logic
+    this.router.navigate(['/customer/checkout']); // Placeholder for actual retry logic
   }
+
+  navigateToHome() {
+  this.router.navigate(['/customer/home']);  // Adjust the route as per your application's routing setup
+}
 }

@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     'handicrafts': 'https://j3k5s6s3.rocketcdn.me/wp-content/uploads/2022/04/02-yehaindia-aff88775fd3f.jpg',
     'textiles': 'https://i0.wp.com/blog.saffronart.com/wp-content/uploads/2017/03/bagh-with-animal-figures-and-shepherd_crop.jpg?fit=2725%2C1399&ssl=1',
     'jewelry': 'https://www.jdinstitute.edu.in/media/2022/01/Traditional-Indian-Jewellery-History-And-Significance-12.jpg',
-    'paintings': 'https://laasyaart.com/wp-content/uploads/2019/07/Satya-Narayan-Lal-Karn-_-Moti-Karn-_-Doli-bride-going-to-her-husband_s-home-_-Natural-dyes-on-handmade-paper-_-7-x-11-inches-_-650-Framed-1.jpg',
+    'paintings': 'https://j3k5s6s3.rocketcdn.me/wp-content/uploads/2022/04/Mandana-Painting-Rekha-Agrawal-03.jpeg',
     'sculptures': 'https://static.prinseps.com/media/uploads/indian-sculpture-1.jpg',
     'pottery': 'https://images.indianexpress.com/2019/11/pottery759.jpeg',
     'musical instruments': 'https://m.media-amazon.com/images/I/61lPiQTeZiL._AC_UF1000,1000_QL80_.jpg',
